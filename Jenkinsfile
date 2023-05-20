@@ -7,7 +7,7 @@ pipeline {
   agent any
   stages {
     stage('Run a test') {
-      step {
+      steps {
         sh ("pwd")
         sh ("ls")
       }
