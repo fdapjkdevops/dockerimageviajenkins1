@@ -18,7 +18,6 @@ pipeline {
         sh ("ls -la")
       }
     }
-/*
     stage('Building image') {
       steps{
         script {
@@ -48,7 +47,7 @@ pipeline {
       }
     }
 
-*/
+
   }
 }
 
