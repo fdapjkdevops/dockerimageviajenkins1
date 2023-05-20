@@ -1,13 +1,15 @@
 pipeline {
   environment {
     imagename = 'fdapjkdevops/dockerimageviajenkins1'
+    GITHUB_CREDS=credentials('github-cred-fedpjkdo')
     DOCKERHUB_CREDENTIALS=credentials('docker-cred-fedpjkdo')
     dockerImage = ''
   }
   agent any
     stage('Cloning Git') {
       steps {
-        git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
+   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
+        git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentials: GITHUB_CREDS ] )
       }
     }
 
