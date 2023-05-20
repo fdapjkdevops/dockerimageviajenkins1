@@ -3,7 +3,7 @@ pipeline {
     imagename    = 'fdapjkdevops/dockerimageviajenkins1'
     REPO_URL     = 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git'
     GITHUB_CREDS = credentials('github-cred-fedpjkdo')
-    DOCKER_CREDS = credentials('docker-cred-fedpjkdo')
+    DOCKER_CREDS = 'docker-cred-fedpjkdo'
     dockerImage  = ''
   }
   agent any
