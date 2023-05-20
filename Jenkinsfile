@@ -5,13 +5,6 @@ pipeline {
     dockerImage = ''
   }
   agent any
-  stages {
-    stage('Run a test') {
-      steps {
-        sh ("pwd")
-        sh ("ls")
-      }
-    }
     stage('Cloning Git') {
       steps {
         git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
