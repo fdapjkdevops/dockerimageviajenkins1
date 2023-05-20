@@ -19,7 +19,7 @@ pipeline {
         sh ("ls -la")
       }
     }
-/*
+
       stage('Building image') {
       steps{
         script {
@@ -29,7 +29,7 @@ pipeline {
         }
       }
     }
-    stage('Push to dockerHub') {
+/*    stage('Push to dockerHub') {
        steps{
           script {
 //                 docker.withRegistry ('', 'docker-cred-fedpjkdo') {
