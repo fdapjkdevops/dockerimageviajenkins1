@@ -2,7 +2,7 @@ pipeline {
   environment {
     imagename    = 'fdapjkdevops/dockerimageviajenkins1'
     REPO_URL     = 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git'
-    GITHUB_CREDS = credentials('github-cred-fedpjkdo')
+    GITHUB_CREDS = 'github-cred-fedpjkdo'
     DOCKER_CREDS = 'docker-cred-fedpjkdo'
     dockerImage  = ''
   }
@@ -14,7 +14,8 @@ pipeline {
    //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentials: GITHUB_CREDS ] )
    //     git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
    //     git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
-        git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
+   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
+        git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: GITHUB_CREDS ])
         
         sh ("ls -la")
       }
