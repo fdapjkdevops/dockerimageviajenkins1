@@ -22,7 +22,8 @@ pipeline {
       }
     }
     
-    stage('Building image') {
+   /*
+   stage('Building image') {
       steps{
         script {
           dockerImage = docker.build imagename
@@ -31,6 +32,7 @@ pipeline {
         }
       }
     }
+	  
     stage('Push to dockerHub') {
        steps{
           script {
@@ -48,6 +50,6 @@ pipeline {
  
       }
     }
-
+	*/
   }
 }
