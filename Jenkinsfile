@@ -10,15 +10,13 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
-   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: GITHUB_CREDS ])
+        //git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
+        //git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: GITHUB_CREDS ])
         git([url: REPO_URL, branch: 'main', credentialsId: GITHUB_CREDS ])
-        
-        sh ("ls -la")
       }
     }
 
-      stage('Building image') {
+    stage('Building image') {
       steps{
         script {
           dockerImage = docker.build imagename
@@ -30,11 +28,10 @@ pipeline {
     stage('Push to dockerHub') {
        steps{
           script {
-//                 docker.withRegistry ('', 'docker-cred-fedpjkdo') {
-                 docker.withRegistry ( '', DOCKER_CREDS ) {            
-                       dockerImage.push('latest')
-                 }
-               
+            //docker.withRegistry ('', 'docker-cred-fedpjkdo') {
+            docker.withRegistry ( '', DOCKER_CREDS ) {            
+              dockerImage.push('latest')
+            }           
           }
        }
     }
@@ -43,11 +40,8 @@ pipeline {
       steps{
         sh "docker rmi $imagename:$BUILD_NUMBER"
         sh "docker rmi $imagename:latest"
-
       }
     }
-
-
   }
 }
 
