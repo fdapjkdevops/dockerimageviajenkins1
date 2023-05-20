@@ -18,7 +18,8 @@ pipeline {
         sh ("ls -la")
       }
     }
-    stage('Building image') {
+/*
+      stage('Building image') {
       steps{
         script {
           dockerImage = docker.build imagename
@@ -46,7 +47,7 @@ pipeline {
 
       }
     }
-
+*/
 
   }
 }
