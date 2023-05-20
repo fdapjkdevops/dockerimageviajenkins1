@@ -7,6 +7,7 @@ pipeline {
     dockerImage  = ''
   }
   agent any
+  stages {
     stage('Cloning Git') {
       steps {
    //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
@@ -44,6 +45,7 @@ pipeline {
       }
     }
 
-*/  
+*/
+  }
 }
 
