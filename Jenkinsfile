@@ -2,7 +2,7 @@ pipeline {
   environment {
     imagename = 'fdapjkdevops/dockerimageviajenkins1'
     GITHUB_CREDS=credentials('github-cred-fedpjkdo')
-    DOCKERHUB_CREDENTIALS=credentials('docker-cred-fedpjkdo')
+    DOCKER_CREDS=credentials('docker-cred-fedpjkdo')
     dockerImage = ''
   }
   agent any
@@ -25,7 +25,8 @@ pipeline {
     stage('Push to dockerHub') {
        steps{
           script {
-                 docker.withRegistry ('', 'docker-cred-fedpjkdo') {
+//                 docker.withRegistry ('', 'docker-cred-fedpjkdo') {
+                 docker.withRegistry ( '', DOCKER_CREDS ) {            
                        dockerImage.push('latest')
                }
           }
