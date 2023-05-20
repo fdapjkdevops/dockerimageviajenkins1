@@ -13,7 +13,7 @@ pipeline {
    //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
    //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentials: GITHUB_CREDS ] )
    //     git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
-        git([url: REPO_URL, branch: 'main', GITHUB_CREDS ] )
+        git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
         
         sh ("ls -la")
       }
