@@ -1,10 +1,7 @@
 pipeline {
   environment {
-// Changed some of thes
-// FranklinDavis1006 is the github user
-// pjkatfda is the dockerhub user
-    imagename = 'pjkatfda/dockerimageviajenkins'
-    DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-fedpj')
+    imagename = 'fdapjkdevops/dockerimageviajenkins1'
+    DOCKERHUB_CREDENTIALS=credentials('docker-cred-fedpjkdo')
     dockerImage = ''
   }
   agent any
@@ -12,8 +9,7 @@ pipeline {
 	  
     stage('Cloning Git') {
       steps {
-        //git branch: '*/*', credentialsId: 'TokenForFranklinDavis1006GitHub', url: 'https://github.com/FranklinDavis1006/dockerimageviajenkins.git'   
- 	git([url: 'https://git@github.com/franklindavis1006/dockerimageviajenkins.git', branch: 'main', credentialsId: 'TokenForFranklinDavis1006GitHub'])
+ 	git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
       }
     }
     
@@ -29,7 +25,7 @@ pipeline {
     stage('Push to dockerHub') {
        steps{
           script {
-		 docker.withRegistry ('', 'dockerhub-cred-fedpj') { 
+		 docker.withRegistry ('', 'docker-cred-fedpjkdo') { 
 		       dockerImage.push('latest')
 	       }
 	  }     
