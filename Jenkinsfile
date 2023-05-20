@@ -5,16 +5,4 @@ pipeline {
     dockerImage = ''
   }
   agent any
-  stages {
-	  
-      stage('run check') {
-          steps{
-              script {
-	          sh("pwd")
-	          sh("ls -la")		
-              }
-          }
-      }
-     
-  }
 }
