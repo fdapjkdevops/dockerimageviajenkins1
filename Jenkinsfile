@@ -11,11 +11,8 @@ pipeline {
     stage('Cloning Git') {
       steps {
    //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
-   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentials: GITHUB_CREDS ] )
-   //     git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
-   //     git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
-   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: 'github-cred-fedpjkdo'])
-        git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: GITHUB_CREDS ])
+   //     git([url: 'https://git@github.com/fdapjkdevops/dockerimageviajenkins1.git', branch: 'main', credentialsId: GITHUB_CREDS ])
+        git([url: REPO_URL, branch: 'main', credentialsId: GITHUB_CREDS ])
         
         sh ("ls -la")
       }
