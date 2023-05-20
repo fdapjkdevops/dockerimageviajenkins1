@@ -29,7 +29,7 @@ pipeline {
         }
       }
     }
-/*    stage('Push to dockerHub') {
+    stage('Push to dockerHub') {
        steps{
           script {
 //                 docker.withRegistry ('', 'docker-cred-fedpjkdo') {
@@ -40,7 +40,7 @@ pipeline {
           }
        }
     }
-
+/*
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $imagename:$BUILD_NUMBER"
