@@ -14,7 +14,7 @@ pipeline {
         git([url: REPO_URL, branch: 'main', credentials: GITHUB_CREDS ] )
       }
     }
-
+/*
     stage('Building image') {
       steps{
         script {
@@ -46,3 +46,4 @@ pipeline {
 
   
 }
+*/
